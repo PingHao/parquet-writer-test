@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:noNamespaceSchemaLocation="https://raw.github.com/enricopulatzo/logback-XSD/master/src/main/xsd/logback.xsd"
+               scan="true" scanPeriod="60">
+
+  <contextListener class="ch.qos.logback.classic.jul.LevelChangePropagator"/>
+
+  <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>%date{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] %logger{0} - %message%n</pattern>
+    </encoder>
+  </appender>
+
+  <logger name="parquet.hadoop" level="WARN"/>
+  <logger name="org.apache.hadoop.io.compress" level="WARN"/>
+  <root level="WARN">
+    <appender-ref ref="console"/>
+  </root>
+</configuration>
